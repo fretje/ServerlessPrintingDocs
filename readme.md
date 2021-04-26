@@ -5,7 +5,7 @@ This project should eventually replace all of the ReportDaemon functionality.
 
 These are the different sub-projects:
 
-### [CrystalReportsApi](CrystalReportsApi/readme.md)
+### [CrystalReportsApi](crystalreportsapi.md)
 
 This is the central piece. 
 The API that actually generates the pdf and puts it in blob storage. 
@@ -34,7 +34,7 @@ working in that environment.)
 The dev version is at the moment deployed as a static website on the Azure Storage account,
 available [here](https://serverlessprintingdev.z6.web.core.windows.net/).
 
-### [FunctionApp](FunctionApp/readme.md)
+### [FunctionApp](functionapp.md)
 
 This is the piece that glues everything together. 
 
@@ -45,7 +45,7 @@ It also exposes a couple of endpoints for the client to connect to and download 
 The dev version is at the moment deployed as a FunctionApp on Azure and is available
 [here](https://serverlessprintingdev.azurewebsites.net/).
 
-### [CrystalReportsRuntime](CrystalReportsRuntime/readme.md)
+### [CrystalReportsRuntime](crystalreportsruntime.md)
 
 This is a docker build project for building a base image which contains the
 Crystal Reports Runtime Components and the necessary fonts.
