@@ -19,20 +19,20 @@ It is packaged up as a docker image (built with windows2019ltsc as base) for eas
 The dev version is at the moment deployed as an Azure Container Instance and is 
 available [here](http://serverlessprintingdev.westeurope.azurecontainer.io/).
 
-### WinformsNetClient
+### ServerlessPrintingClient
 
 This is the part that runs on the client, listens for "PrintCommands" and executes them.
 This should replicate the functionality of ReportDaemon (printing documents, mailing them,
 opening them for previewing). 
 
-This is now implemented using Winforms on .NET Framework, packaged up as a click-once
-application for ease of deployment.
+This is now implemented using Winforms on .NET Framework, <s>packaged up as a click-once
+application for ease of deployment</s>.
 
 (I have tried building it for .NET 5 but the controls that are used now are not yet 
 working in that environment.)
 
-The dev version is at the moment deployed as a static website on the Azure Storage account,
-available [here](https://serverlessprintingdev.z6.web.core.windows.net/).
+The dev version is at the moment deployed as a zip file containing a release build 
+on the Azure Storage account, available [here](https://serverlessprintingdev.z6.web.core.windows.net/ServerlessPrintingClient.zip).
 
 ### [FunctionApp](functionapp.md)
 
