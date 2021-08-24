@@ -5,12 +5,12 @@ There is only one method here **`api/report`**.
 This method accepts an xml file with data and options (the same file that can be
 supplied to ReportDaemon) and generates and returns a pdf document.
 When a `clientId` is supplied, the document is also sent to blob storage 
-(for the client to print). 
+(for the client to print). When `showPreview` is set to true, the client will
+show a preview, while in the other case it directly prints.
 
 It is a REST POST api that only accepts 'multipart/form-data' content. 
 A request can contain multiple files, but needs at least one xml file.
-It can also contain a "ClientId" parameter (necessary when you want the document 
-to be printed somewhere).
+It can also contain a "clientId" parameter and a "showPreview" parameter.
 The service will also return the generated document. 
 
 In the case of multiple documents in the xml, only the first one will be returned, 
