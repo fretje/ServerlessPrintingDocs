@@ -1,16 +1,16 @@
 ## CrystalReportsApi
 
-There is only one method here **`api/report`**.   
+### api/Report
 
 This method accepts an xml file with data and options (the same file that can be
 supplied to ReportDaemon) and generates and returns a pdf document.
 When a `clientId` is supplied, the document is also sent to blob storage 
-(for the client to print). When `showPreview` is set to true, the client will
-show a preview, while in the other case it directly prints.
+(for the client to print). 
 
 It is a REST POST api that only accepts 'multipart/form-data' content. 
 A request can contain multiple files, but needs at least one xml file.
-It can also contain a "clientId" parameter and a "showPreview" parameter.
+It can also contain a "ClientId" parameter (necessary when you want the document 
+to be printed somewhere).
 The service will also return the generated document. 
 
 In the case of multiple documents in the xml, only the first one will be returned, 
@@ -48,6 +48,17 @@ An example call looks like this:
 The "Accept-Language" header is important! 
 It defines how the supplied xml will be parsed (important for numbers and dates).
 
+### api/ClearCache
+
+This is a REST POST api that can be called without a body:
+
+    curl -X POST 'http://serverlessprintingdev.westeurope.azurecontainer.io/api/ClearCache'
+
+This will clear all the .rpt and .xsd files from the local cache (the files downloaded from blob storage). 
+
+This call can throw an exception in case one or more of the files in the cache are in use.
+This can happen when a report is being generated at the same time.
+
 ### User Secrets
 This project uses UserSecrets to manage the AzureStorageConnectionString appsetting.
 For local development you have to add this setting to the secrets.xml file 
@@ -62,4 +73,3 @@ For local development you have to add this setting to the secrets.xml file
 
 In a deployed container environment this setting needs to be set as an 
 environment variable when starting the container.
-
